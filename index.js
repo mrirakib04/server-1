@@ -114,6 +114,12 @@ async function run() {
       const result = await reviewCollection.insertOne(newReview);
       res.send(result);
     });
+    // watchlist posting
+    app.post("/watchlist", async (req, res) => {
+      const newWatchlistReview = req.body;
+      const result = await watchlistCollection.insertOne(newWatchlistReview);
+      res.send(result);
+    });
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
