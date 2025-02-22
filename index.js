@@ -59,6 +59,15 @@ async function run() {
       const result = await cursor.toArray();
       res.send(result);
     });
+    // top-rated reading
+    app.get("/reviews/top-rated", async (req, res) => {
+      const cursor = reviewCollection
+        .find() // Fetch all reviews
+        .sort({ rating: -1 }) // Sort by rating in descending order
+        .limit(6); // Limit the result to top 6 reviews
+      const result = await cursor.toArray();
+      res.send(result);
+    });
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
