@@ -32,3 +32,11 @@
 - **MongoDB**: NoSQL database to store game reviews and watchlist data.
 - **CORS**: Middleware to handle cross-origin requests.
 - **dotenv**: For managing environment variables such as MongoDB credentials.
+
+## Conclusion
+
+Thank you for checking out my repository. If you have any feedback or suggestions, feel free to reach out!
+
+---
+
+Developed by **Md Rakibul Islam Rakib**
