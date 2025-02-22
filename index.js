@@ -137,6 +137,15 @@ async function run() {
       );
       res.send(result);
     });
+
+    // Delete
+    // watchlist deleting
+    app.delete("/watchlist/:id", async (req, res) => {
+      const id = req.params.id;
+      const query = { _id: new ObjectId(id) };
+      const result = await watchlistCollection.deleteOne(query);
+      res.send(result);
+    });
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
