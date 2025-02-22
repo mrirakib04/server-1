@@ -91,6 +91,12 @@ async function run() {
       const result = await reviewCollection.find(query).toArray();
       res.send(result);
     });
+    // watchlist reading
+    app.get("/watchlist", async (req, res) => {
+      const cursor = watchlistCollection.find();
+      const result = await cursor.toArray();
+      res.send(result);
+    });
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
