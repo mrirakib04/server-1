@@ -82,6 +82,15 @@ async function run() {
       const result = await reviewCollection.findOne(query);
       res.send(result);
     });
+    // user reviews reading
+    app.get("/reviews/:userEmail", async (req, res) => {
+      const userEmail = req.params.userEmail;
+      const query = {
+        userEmail: userEmail,
+      };
+      const result = await reviewCollection.find(query).toArray();
+      res.send(result);
+    });
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
