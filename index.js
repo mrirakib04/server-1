@@ -97,6 +97,15 @@ async function run() {
       const result = await cursor.toArray();
       res.send(result);
     });
+    // user watchlist reading
+    app.get("/watchlist/:currentUserEmail", async (req, res) => {
+      const currentUserEmail = req.params.currentUserEmail;
+      const query = {
+        currentUserEmail: currentUserEmail,
+      };
+      const result = await watchlistCollection.find(query).toArray();
+      res.send(result);
+    });
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
