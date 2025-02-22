@@ -47,6 +47,12 @@ async function run() {
       const result = await cursor.toArray();
       res.send(result);
     });
+    // rating based reading
+    app.get("/rating", async (req, res) => {
+      const cursor = reviewCollection.find().sort({ rating: -1 }); // descending order for ratings
+      const result = await cursor.toArray();
+      res.send(result);
+    });
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
