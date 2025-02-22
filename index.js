@@ -120,6 +120,23 @@ async function run() {
       const result = await watchlistCollection.insertOne(newWatchlistReview);
       res.send(result);
     });
+
+    // Updating
+    // review updating
+    app.put("/updated/:id", async (req, res) => {
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id) };
+      const options = { upsert: true };
+      const updatedReview = {
+        $set: req.body,
+      };
+      const result = await reviewCollection.updateOne(
+        filter,
+        updatedReview,
+        options
+      );
+      res.send(result);
+    });
   } finally {
     // Ensures that the client will close when you finish/error
     // await client.close();
