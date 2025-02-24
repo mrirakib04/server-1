@@ -10,7 +10,10 @@ const app = express();
 // middleware
 app.use(
   cors({
-    origin: ["http://localhost:5173"],
+    origin: [
+      "http://localhost:5173",
+      "https://mrirakib-web-practice-7.netlify.app",
+    ],
   })
 );
 app.use(express.json());
